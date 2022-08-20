@@ -5,15 +5,14 @@ import numpy as np
 import pandas as pd 
     
 root = Tk()
-#zmienne na wartościami walut
+# Variables for currencies values
 variable1 = StringVar(root)
 variable2 = StringVar(root)
-#Inicjalizacja zmiennych z wartościami
+# Variable inicialization
 variable1.set("currency")
 variable2.set("currency")
+# Currencies list, but is possibility to use all currencies available in API
 CurrenyCode_list = ["PLN", "USD", "CAD", "RUB", "EUR", "BTC"]
-
-"""Obslugiwane waluty: ["PLN", "USD", "CAD", "RUB", "EUR", "BTC"]"""
 
 def CurrencyConversion():
     """Real time currency converter"""
@@ -46,6 +45,7 @@ def CurrencyConversion():
             data = req.json()
             data = data['rates']
             json.dump(data, json_file)
+            
 def clear_all():
     Amount1.delete(0, END)
     Amount2.delete(0, END)
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     root.geometry("600x375")
     root.resizable(height=False, width=False)
     
-    #Labelki z informacjami dla uzytkownika
+    # Labels to inform users about entity
     headlabel = Label(root, text = 'Kalkulator walut',
                     fg = 'black', bg = "red")
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     label4 = Label(root, text = "Przekonwertowana wartość :",
                 fg = 'black', bg = 'dark green')
 
-    #Siatka z labelkami
+    # Labels mesh
     headlabel.grid(row = 0, column = 1)
     label1.grid(row = 1, column = 0)
     label2.grid(row = 2, column = 0)
